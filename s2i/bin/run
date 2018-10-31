@@ -9,5 +9,10 @@
 
 set -euxo pipefail
 
-exec ${HOME}/bin/getuid.sh
+echo $$
+env
+
+echo "---> Setting Container User uid"
+
+${HOME}/bin/getuid.sh
 exec ${HOME}/bin/build.sh

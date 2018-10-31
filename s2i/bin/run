@@ -9,5 +9,5 @@
 
 set -euxo pipefail
 
-${HOME}/bin/getuid.sh
+exec ${HOME}/bin/getuid.sh
 exec ${HOME}/bin/build.sh

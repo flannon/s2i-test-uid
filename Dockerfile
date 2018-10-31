@@ -1,7 +1,6 @@
 
 # s2i-builder-rpm
 FROM openshift/base-centos7
-#FROM centos/s2i-core-centos7
 
 MAINTAINER Flannon Jackson <flannon@nyu.edu>
 
@@ -19,13 +18,10 @@ RUN yum install -y epel-release \
 ENV APP_ROOT=/opt/app-root
 ENV PATH=${APP_ROOT}/bin:${PATH} HOME=${APP_ROOT}
 COPY bin/ ${APP_ROOT}/bin/
-#COPY ./build.sh ${HOME}/build.sh
+
 RUN chmod -R u+x ${APP_ROOT}/bin && \
     chgrp -R 0 ${APP_ROOT} && \
     chmod -R g=u ${APP_ROOT} /etc/passwd
-    #chown -R 1001:0 /opt/app-root && \
-    #chmod -R 775 /opt/app-root
-
 
 COPY ./s2i/bin/ /usr/libexec/s2i
 

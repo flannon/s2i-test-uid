@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eux
+
 # Add default uid to /etc/passwd
 #if ! whoami &> /dev/null; then
 #  if [ -w /etc/passwd ]; then

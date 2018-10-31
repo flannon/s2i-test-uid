@@ -24,6 +24,3 @@ cp -Rf /tmp/src/. ./
 
 echo "---> Building application from source..."
 
-#rpmdev-setuptree
-
-#curl https://dl.fedoraproject.org/pub/fedora/linux/updates/testing/27/SRPMS/g/git-2.14.2-2.fc27.src.rpm -o git-2.14.2-2.fc27.src.rpm 

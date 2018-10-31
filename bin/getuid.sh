@@ -9,5 +9,5 @@
 
 [[ ! $(whoami 2> /dev/null) ]] && \
   [[ -w /etc/passwd ]] && \
-    echo "${USER_NAME:-runner}:x:$(id -u):0:${USER_NAME:-runner} user:${HOME}:/sbin/nologin" >> /etc/passwd
+    echo "${USER_NAME:-runner}:x:$(id -u):0:Container Applicaiton User:${HOME}:/sbin/nologin" >> /etc/passwd
    

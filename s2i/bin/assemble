@@ -24,8 +24,3 @@ cp -Rf /tmp/src/. ./
 
 echo "---> Registering application uid..."
 
-[[ ! $(whoami 2> /dev/null) ]] && \
-  [[ -w /etc/passwd ]] && \
-    echo "${USER_NAME:-default}:x:$(id -u):0:Container Application User:${HOME}:/sbin/nologin" >> /etc/passwd
-
-echo "---> Building application from source..."

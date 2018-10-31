@@ -14,5 +14,5 @@ env
 
 #echo "---> Setting Container User uid"
 
-#${HOME}/bin/getuid.sh
+${HOME}/bin/getuid.sh
 exec ${HOME}/bin/build.sh

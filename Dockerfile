@@ -6,10 +6,10 @@ MAINTAINER Flannon Jackson <flannon@nyu.edu>
 
 ENV BUILDER_VERSION 0.1.0
 
-LABEL io.k8s.description="Platform for building src rpms" \
-      io.k8s.display-name="builder rpm" \
+LABEL io.k8s.description="s2i uid demo" \
+      io.k8s.display-name="s2i uid demo" \
       io.openshift.expose-services="" \
-      io.openshift.tags="builder,rpm,etc." 
+      io.openshift.tags="s2i, uid" 
 
 RUN yum install -y epel-release \
     && yum clean all -y
@@ -22,7 +22,6 @@ COPY bin/ ${APP_ROOT}/bin/
 RUN chmod -R u+x ${APP_ROOT}/bin && \
     chgrp -R 0 ${APP_ROOT} && \
     chmod -R g=u ${APP_ROOT} /etc/passwd /etc/group
-    #chmod -R g=u ${APP_ROOT} /etc/group
 
 COPY ./s2i/bin/ /usr/libexec/s2i
 
@@ -30,6 +29,7 @@ COPY ./s2i/bin/ /usr/libexec/s2i
 USER 1001
 WORKDIR ${APP_ROOT}
 
-### user name recognition at runtime w/ an arbitrary uid - for OpenShift deployments
 VOLUME ${APP_ROOT}/logs ${APP_ROOT}/data
+
+### Set user name recognition at runtime w/ an arbitrary uid - for OpenShift deployments
 CMD ["/usr/libexec/s2i/run"]

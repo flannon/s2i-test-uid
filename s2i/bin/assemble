@@ -22,5 +22,10 @@ fi
 echo "---> Installing application source..."
 cp -Rf /tmp/src/. ./
 
-echo "---> Building application from source..."
+echo "---> Registering application uid..."
 
+[[ ! $(whoami 2> /dev/null) ]] && \
+  [[ -w /etc/passwd ]] && \
+    echo "${USER_NAME:-default}:x:$(id -u):0:Container Application User:${HOME}:/sbin/nologin" >> /etc/passwd
+
+echo "---> Building application from source..."

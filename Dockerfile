@@ -26,7 +26,7 @@ RUN chmod -R u+x ${APP_ROOT}/bin && \
 COPY ./s2i/bin/ /usr/libexec/s2i
 
 # This default user is created in the openshift/base-centos7 image
-#USER 1001
+USER 10001
 WORKDIR ${APP_ROOT}
 
 VOLUME ${APP_ROOT}/logs ${APP_ROOT}/data

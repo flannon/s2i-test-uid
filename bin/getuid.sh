@@ -13,6 +13,6 @@ grep default /etc/passwd
 
 [[ ! $(whoami 2> /dev/null) ]] && \
   [[ -w /etc/passwd ]] && \
-    echo "${USER_NAME:-runner}:x:$(id -u):0:Container Application User:${HOME}:/sbin/nologin" >> /etc/passwd
+    echo "${USER_NAME:-builder}:x:$(id -u):0:Container Application User:${HOME}:/sbin/nologin" >> /etc/passwd
    
 grep default /etc/passwd
